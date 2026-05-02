@@ -13,5 +13,5 @@ public class CustomerDto {
 
     private String email;
 
-    private Long mobileNumber;
+    private String mobileNumber;
 }
