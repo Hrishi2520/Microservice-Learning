@@ -1,15 +1,29 @@
 package com.microservice.account.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.microservice.account.constants.AccountsConstants;
+import com.microservice.account.dto.CustomerDto;
+import com.microservice.account.dto.ResponseData;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.awt.*;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class AccountController {
 
-    @GetMapping
-    public String sayHello() {
-        return "Hey World";
+
+    @PostMapping
+    public ResponseEntity<ResponseData> create(@RequestBody CustomerDto dto) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ResponseData(
+                        AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201
+                ));
     }
+//    @GetMapping
+//    public String sayHello() {
+//        return "Hey World";
+//    }
 }
