@@ -1,7 +1,6 @@
 package com.microservice.account.service;
 
 import com.microservice.account.dto.CustomerDto;
-import com.microservice.account.entity.Customer;
 
 public interface IAccountService {
 
@@ -14,4 +13,6 @@ public interface IAccountService {
     CustomerDto fetchAccount(String mobileNumber);
 
     boolean updateAccount(CustomerDto dto);
+
+    boolean deleteAccount(String mobileNumber);
 }
