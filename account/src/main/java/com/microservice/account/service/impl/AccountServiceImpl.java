@@ -49,4 +49,14 @@ public class AccountServiceImpl implements IAccountService {
         newAccount.setCreatedBy("Anonymous");
         return newAccount;
     }
+
+    @Override
+    public CustomerDto fetchAccount(String mobileNumber) {
+        Optional<Customer> customer = customerRepository.findByMobileNumber(mobileNumber);
+
+        if (customer.isEmpty()) {
+            throw new CustomerAlreadyExistsException("Customer not Register with given Mobile Number "+ mobileNumber);
+        }
+        return CustomerMapper.mapToCustomerDto(customer.get(), new CustomerDto());
+    }
 }

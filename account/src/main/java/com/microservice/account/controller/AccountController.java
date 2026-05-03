@@ -26,4 +26,8 @@ public class AccountController {
                         AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201
                 ));
     }
+
+    public ResponseEntity<CustomerDto> fetchAccountDetails(@RequestParam String mobileNumber) {
+
+    }
 }
