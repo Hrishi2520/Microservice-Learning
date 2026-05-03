@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class AccountsDto {
 
     @Schema(
-            description = "Account Number of the Bank"
+            description = "Account Number of the Bank", example = "2749283029"
     )
     @NotEmpty(message = "Account Number Cannot be Empty")
     @Pattern(regexp = "^$|[0-9]{10}", message = "Account Number must be 10 digits.")
