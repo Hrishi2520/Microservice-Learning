@@ -12,7 +12,7 @@ import lombok.*;
 public class Customer extends BaseEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
 
     private String name;

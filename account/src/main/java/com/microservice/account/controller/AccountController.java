@@ -4,19 +4,18 @@ import com.microservice.account.constants.AccountsConstants;
 import com.microservice.account.dto.CustomerDto;
 import com.microservice.account.dto.ResponseData;
 import com.microservice.account.service.IAccountService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
+@AllArgsConstructor
 public class AccountController {
 
-    @Autowired
     private IAccountService iAccountService;
 
     @PostMapping
