@@ -1,10 +1,12 @@
 package com.microservice.account.service.impl;
 
 import com.microservice.account.constants.AccountsConstants;
+import com.microservice.account.dto.AccountsDto;
 import com.microservice.account.dto.CustomerDto;
 import com.microservice.account.entity.Accounts;
 import com.microservice.account.entity.Customer;
 import com.microservice.account.exception.CustomerAlreadyExistsException;
+import com.microservice.account.exception.ResourceNotFoundException;
 import com.microservice.account.mapper.AccountsMapper;
 import com.microservice.account.mapper.CustomerMapper;
 import com.microservice.account.repository.AccountsRepository;
@@ -52,11 +54,13 @@ public class AccountServiceImpl implements IAccountService {
 
     @Override
     public CustomerDto fetchAccount(String mobileNumber) {
-        Optional<Customer> customer = customerRepository.findByMobileNumber(mobileNumber);
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer", "Mobile Number", mobileNumber));
 
-        if (customer.isEmpty()) {
-            throw new CustomerAlreadyExistsException("Customer not Register with given Mobile Number "+ mobileNumber);
-        }
-        return CustomerMapper.mapToCustomerDto(customer.get(), new CustomerDto());
+        Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId())
+                .orElseThrow(() -> new ResourceNotFoundException("Account", "Customer Id", customer.getCustomerId().toString()));
+        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+        customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
+        return customerDto;
     }
 }
