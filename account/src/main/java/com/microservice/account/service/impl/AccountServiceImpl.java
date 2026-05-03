@@ -67,9 +67,7 @@ public class AccountServiceImpl implements IAccountService {
     @Override
     public boolean updateAccount(CustomerDto dto) {
         boolean isUpdated = false;
-
         AccountsDto accountsDto = dto.getAccountsDto();
-
         if (accountsDto != null) {
             Accounts accounts = accountsRepository.findById(accountsDto.getAccountNumber()).orElseThrow(
                     () -> new ResourceNotFoundException("Account", "Account Number", accountsDto.getAccountNumber().toString())
@@ -82,7 +80,6 @@ public class AccountServiceImpl implements IAccountService {
                     .orElseThrow(
                             () -> new ResourceNotFoundException("Customer", "Customer Id", customerId.toString())
                     );
-
             CustomerMapper.mapToCustomer(dto, customer);
             customerRepository.save(customer);
             isUpdated = true;
