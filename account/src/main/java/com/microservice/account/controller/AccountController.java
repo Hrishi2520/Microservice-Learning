@@ -4,6 +4,10 @@ import com.microservice.account.constants.AccountsConstants;
 import com.microservice.account.dto.CustomerDto;
 import com.microservice.account.dto.ResponseDto;
 import com.microservice.account.service.IAccountService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -14,6 +18,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
+@Tag(
+        name = "CRUD REST APIs for Accounts in Bank",
+        description = "CRUD REST APIs in Bank to CREATE, UPDATE, FETCH and DELETE account details"
+)
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
@@ -22,7 +30,15 @@ public class AccountController {
 
     private IAccountService iAccountService;
 
-    @PostMapping
+    @Operation(
+            summary = "Create Account REST API",
+            description = "REST API to create new customer & Account inside Bank"
+    )
+    @ApiResponse(
+            responseCode = "201",
+            description = "Http Status Created"
+    )
+    @PostMapping("/create")
     public ResponseEntity<ResponseDto> create(@Valid @RequestBody CustomerDto dto) {
         iAccountService.createAccount(dto);
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -31,7 +47,15 @@ public class AccountController {
                 ));
     }
 
-    @GetMapping
+    @Operation(
+            summary = "Fetch Account Details REST API",
+            description = "REST API to Fetch Account Details for Bank"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status OK"
+    )
+    @GetMapping("/fetch")
     public ResponseEntity<CustomerDto> fetchAccountDetails(@RequestParam
                                                                @Pattern(regexp = "^$|[0-9]{10}", message = "mobile Number must be 10 digits.")
                                                                String mobileNumber) {
@@ -39,7 +63,21 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.OK).body(customerDto);
     }
 
-    @PutMapping
+    @Operation(
+            summary = "Update Account REST API",
+            description = "REST API to Update new customer & Account inside Bank"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Http Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "Http Status Internal Server Error"
+            )
+    })
+    @PutMapping("/update")
     public ResponseEntity<ResponseDto> updateCustomerDetail(@Valid @RequestBody CustomerDto customerDto) {
         boolean isUpdated = iAccountService.updateAccount(customerDto);
         if (isUpdated){
@@ -53,7 +91,21 @@ public class AccountController {
         }
     }
 
-    @DeleteMapping
+    @Operation(
+            summary = "Delete Account REST API",
+            description = "REST API to delete customer & Account inside Bank"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Http Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "Http Status Internal Server Error"
+            )
+    })
+    @DeleteMapping("/delete")
     public ResponseEntity<ResponseDto> deleteCustomerDetail(@RequestParam
                                                                 @Pattern(regexp = "^$|[0-9]{10}", message = "mobile Number must be 10 digits.")
                                                                 String mobileNumber) {
