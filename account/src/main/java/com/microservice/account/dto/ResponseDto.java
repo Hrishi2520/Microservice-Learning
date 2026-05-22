@@ -3,6 +3,7 @@ package com.microservice.account.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Schema(
@@ -10,6 +11,7 @@ import lombok.Data;
         description = "Schema to hold Successful response information"
 )
 @AllArgsConstructor
+@NoArgsConstructor
 public class ResponseDto {
 
     @Schema(
