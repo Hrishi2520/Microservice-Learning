@@ -1,0 +1,38 @@
+services:
+  accounts:
+    image: "hrishi2511/accounts:v1"
+    container_name: accounts_ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - achiever
+  loans:
+    image: "hrishi2511/loans:v1"
+    container_name: loans_ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - achiever
+  cards:
+    image: "hrishi2511/cards:v1"
+    container_name: cards_ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - achiever
+
+networks:
+  achiever:
+    driver: "bridge"
