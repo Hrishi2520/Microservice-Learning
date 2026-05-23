@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b336712-5d7e-4842-9042-87eb1eca9bcd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/account/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/microservice/account/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/microservice/account/dto/ResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loans/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,27 +47,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AccountApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LoansApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.AccountApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.account [install,--non-recursive].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.cards [install,--non-recursive].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.loans [install,--non-recursive].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Microservice-Learning&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.build.tools.auto.reload&quot;: &quot;SELECTIVE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AccountApplication.executor": "Run",
+    "Application.LoansApplication.executor": "Run",
+    "Maven.AccountApplication.executor": "Run",
+    "Maven.account [install,--non-recursive].executor": "Run",
+    "Maven.cards [install,--non-recursive].executor": "Run",
+    "Maven.loans [install,--non-recursive].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "acounts",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Microservice-Learning",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.build.tools.auto.reload": "SELECTIVE",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.microservice.account.exception" />
