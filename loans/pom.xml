@@ -105,7 +105,7 @@
 						<name>
 							hrishi2511/${project.artifactId}:v1
 						</name>
-						<builder>paketobuildpacks/builder-jammy-base</builder>
+						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
 					</image>
 					<excludes>
 						<exclude>
