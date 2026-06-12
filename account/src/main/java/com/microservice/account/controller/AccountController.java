@@ -176,8 +176,8 @@ public class AccountController {
     )
     @GetMapping("/java-version")
     public ResponseEntity<String> getJavaVersion(){
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(environment.getProperty("JAVA_HOME"));
+        return ResponseEntity.ok(
+                "JAVA_HOME=" + environment.getProperty("JAVA_HOME")
+        );
     }
 }
