@@ -16,3 +16,6 @@ spring:
     show-sql: true
   application:
     name: account
+
+build:
+  version: "1.0"

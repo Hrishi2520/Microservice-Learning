@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -27,11 +28,18 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
 @Validated
 public class AccountController {
 
-    private IAccountService iAccountService;
+    private final IAccountService iAccountService;
+
+    public AccountController(IAccountService iAccountService) {
+        this.iAccountService = iAccountService;
+    }
+
+    @Value("${build.version}")
+    private String buildVersion;
+
 
     @Operation(
             summary = "Create Account REST API",
@@ -136,5 +144,20 @@ public class AccountController {
                     .status(HttpStatus.OK)
                     .body(new ResponseDto(AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_DELETE));
         }
+    }
+
+    @Operation(
+            summary = "Fetch Build version for accounts",
+            description = "Build Version for account microservice"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status OK"
+    )
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildVersion(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buildVersion);
     }
 }
