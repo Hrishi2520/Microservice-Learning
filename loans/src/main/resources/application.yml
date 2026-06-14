@@ -26,8 +26,7 @@ spring:
 
 build:
   version: "3.0"
-
-accounts:
+loans:
   message: "Welcome to Bank Loans related Apis"
   contactDetails:
     name: "Aish"
@@ -35,6 +34,3 @@ accounts:
   onCallSupport:
     - (555)555-123
     - (555)555-142
-
-  application:
-    name: loans

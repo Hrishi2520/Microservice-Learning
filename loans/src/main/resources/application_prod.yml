@@ -6,7 +6,7 @@ spring:
 build:
   version: "1.0"
 
-accounts:
+loans:
   message: "Welcome to Bank Loans related Apis"
   contactDetails:
     name: "sayali"
@@ -14,6 +14,3 @@ accounts:
   onCallSupport:
     - (555)121-321
     - (555)531-423
-
-  application:
-    name: loans
