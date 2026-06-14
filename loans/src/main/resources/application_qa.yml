@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+loans:
+  message: "Welcome to Bank Loans related Apis"
+  contactDetails:
+    name: "Aditi"
+    email: "aditilende@gmail.com"
+  onCallSupport:
+    - (555)121-123
+    - (555)531-142
