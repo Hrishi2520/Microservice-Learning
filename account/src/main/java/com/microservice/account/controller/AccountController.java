@@ -1,6 +1,7 @@
 package com.microservice.account.controller;
 
 import com.microservice.account.constants.AccountsConstants;
+import com.microservice.account.dto.AccountsContactInfoDto;
 import com.microservice.account.dto.CustomerDto;
 import com.microservice.account.dto.ErrorResponseDto;
 import com.microservice.account.dto.ResponseDto;
@@ -14,7 +15,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +42,12 @@ public class AccountController {
 
     @Value("${build.version}")
     private String buildVersion;
+
+    @Autowired
+    private Environment environment;
+
+    @Autowired
+    private AccountsContactInfoDto contactInfoDto;
 
 
     @Operation(
@@ -159,5 +168,18 @@ public class AccountController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(buildVersion);
+    }
+
+    @Operation(
+            summary = "Fetch account info",
+            description = "account microservice Info"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status OK"
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo(){
+        return ResponseEntity.ok(contactInfoDto);
     }
 }
