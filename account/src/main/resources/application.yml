@@ -14,8 +14,18 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-  application:
-    name: account
 
 build:
   version: "1.0"
+
+accounts:
+  message: "Welcome to Bank Acounts related Apis"
+  contactDetails:
+    name: "hrishi"
+    email: "hrishikeshshedge@gmail.com"
+  onCallSupport:
+    - (555)555-333
+    - (555)555-112
+
+  application:
+    name: account
